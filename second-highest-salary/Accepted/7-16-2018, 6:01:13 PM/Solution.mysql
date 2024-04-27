@@ -1,0 +1,6 @@
+// https://leetcode.com/problems/second-highest-salary
+
+# Write your MySQL query statement below
+Select Max(Salary) as SecondHighestSalary
+From Employee
+Where salary != (Select Max(Salary) from Employee)

@@ -1,0 +1,9 @@
+// https://leetcode.com/problems/exchange-seats
+
+# Write your MySQL query statement below
+SELECT (
+case when mod(id, 2) != 0 AND counts != id then id+1
+    when mod(id, 2) !=0 AND counts = id then id
+    else id-1
+    end
+) as id, student FROM seat, (select count(*) as counts from seat) as s_counts order by id asc

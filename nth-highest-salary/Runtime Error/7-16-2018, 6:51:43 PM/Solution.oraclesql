@@ -1,0 +1,10 @@
+// https://leetcode.com/problems/nth-highest-salary
+
+CREATE FUNCTION getNthHighestSalary(N IN NUMBER) RETURN NUMBER IS
+result NUMBER;
+BEGIN
+    /* Write your PL/SQL query statement below */
+    select MIN(Salary) as result in (select top N salary from Employee order by salary desc limit N)
+     
+    RETURN result;
+END;

@@ -1,0 +1,9 @@
+// https://leetcode.com/problems/nth-highest-salary
+
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (
+      # Write your MySQL query statement below.
+       select MIN(Salary) as result from (select top N salary from Employee order by salary desc);
+  );
+END

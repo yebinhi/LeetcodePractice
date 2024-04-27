@@ -1,0 +1,12 @@
+// https://leetcode.com/problems/human-traffic-of-stadium
+
+# Write your MySQL query statement below
+select t1.id, t1.date, t1.people 
+from stadium as t1, stadium as t2, stadium as t3
+where 
+     t2.id-t1.id =1
+     AND t3.id-t1.id=2
+     AND t1.people >=100
+     AND t2.people >=100
+     AND t3.people >=100
+     

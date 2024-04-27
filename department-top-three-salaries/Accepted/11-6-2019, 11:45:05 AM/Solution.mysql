@@ -1,0 +1,23 @@
+// https://leetcode.com/problems/department-top-three-salaries
+
+# Write your MySQL query statement below
+
+SELECT 
+    D1.Name as Department,
+    E1.Name as Employee,
+    E1.Salary as Salary
+FROM
+    Employee as E1,
+    Department as D1
+WHERE
+        E1.DepartmentId = D1.Id
+    AND
+        (SELECT 
+            COUNT(DISTINCT E2.Salary)
+         FROM 
+             Employee as E2
+         WHERE
+             E1.DepartmentId = E2.DepartmentId
+            AND
+             E2.Salary > E1.Salary) < 3 
+         

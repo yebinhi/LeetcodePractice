@@ -1,0 +1,18 @@
+// https://leetcode.com/problems/department-highest-salary
+
+/* Write your PL/SQL query statement below */
+select 
+    Department.Name as Department,
+    Employee.Name as Employee,
+    salary
+from Employee
+     join Department
+            on Employee.DepartmentId = Department.Id
+     where 
+     (Employee.DepartmentId , Salary) IN
+    (   SELECT
+            DepartmentId, MAX(Salary)
+        FROM
+            Employee
+        GROUP BY DepartmentId
+    )

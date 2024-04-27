@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/one-edit-distance
+
+class Solution {
+public:
+    bool isOneEditDistance(string s, string t) {
+        int n=s.size(), h=t.size(), shfit=h-n, i=0;
+        if(n>h) return isOneEditDistance(t, s);
+        if(h-n >1) return false;
+        while(i<n && s[i]==t[i]) i++;
+        if(i==n) return shit>0;
+        if(n==m) i++;
+        while(i<m && s[i]==t[i+shit]) i++;
+        return i==m;
+        
+        
+        
+
+    }
+};

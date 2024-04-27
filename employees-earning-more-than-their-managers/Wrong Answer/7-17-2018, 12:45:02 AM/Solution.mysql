@@ -1,0 +1,4 @@
+// https://leetcode.com/problems/employees-earning-more-than-their-managers
+
+# Write your MySQL query statement below
+SELECT Name AS Employee FROM Employee WHERE Salary > (SELECT MAX(Salary) FROM Employee WHERE ManagerId != NULL)

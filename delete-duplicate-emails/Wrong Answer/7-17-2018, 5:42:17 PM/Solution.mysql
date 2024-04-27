@@ -1,0 +1,6 @@
+// https://leetcode.com/problems/delete-duplicate-emails
+
+# Write your MySQL query statement below
+select min(Id), Email
+from Person
+group by Email

@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/trips-and-users
+
+# Write your MySQL query statement below
+SELECT
+    T1.Request_at as Day,
+    round(
+		count(T1.Status <> 'completed' or null) / count(*), 2
+		) as 'Cancellation Rate' 
+From
+    Trips as T1,
+    Users as U1
+WHERE
+    T1.Client_Id =U1.Users_Id
+    AND
+    U1.Banned = "No"
+    AND
+    T1.Request_at <= "2013-10-03"
+    AND
+    T1.Request_at >= "2013-10-01"
+group by
+    T1.Request_at

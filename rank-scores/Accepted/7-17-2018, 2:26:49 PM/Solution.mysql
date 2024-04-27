@@ -1,0 +1,12 @@
+// https://leetcode.com/problems/rank-scores
+
+# Write your MySQL query statement below
+select t1.Score, (t2.rownum) as Rank from Scores as t1
+join
+(select t4.Score, (@row:=@row+1) as rownum from 
+                                     
+                                         (select distinct Score from Scores order by Score desc) as t4, (select (@row:=0)) as t3
+                                     
+)as t2
+on t1.Score = t2.Score
+order by t1.Score desc

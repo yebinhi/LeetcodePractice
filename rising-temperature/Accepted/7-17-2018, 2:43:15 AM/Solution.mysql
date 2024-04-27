@@ -1,0 +1,4 @@
+// https://leetcode.com/problems/rising-temperature
+
+# Write your MySQL query statement below
+SELECT Weather.Id FROM Weather JOIN Weather as w ON DATEDIFF(Weather.RecordDate, w.RecordDate)=1 AND Weather.Temperature > w.Temperature

@@ -1,0 +1,6 @@
+// https://leetcode.com/problems/second-highest-salary
+
+/* Write your PL/SQL query statement below */
+select MAX(Salary) as SecondHighestSalary
+from Employee
+where Salary != (select Max(Salary) from Employee)

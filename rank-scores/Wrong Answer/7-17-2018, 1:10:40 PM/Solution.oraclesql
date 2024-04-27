@@ -1,0 +1,4 @@
+// https://leetcode.com/problems/rank-scores
+
+/* Write your PL/SQL query statement below */
+select score, Dense_Rank() over (order by Score desc) as Rank from scores;

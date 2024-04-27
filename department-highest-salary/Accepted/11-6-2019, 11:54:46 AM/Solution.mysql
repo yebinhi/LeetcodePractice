@@ -1,0 +1,22 @@
+// https://leetcode.com/problems/department-highest-salary
+
+# Write your MySQL query statement below
+SELECT
+    D1.Name as Department,
+    E1.Name as Employee,
+    E1.Salary as Salary
+FROM
+    Department as D1,
+    Employee as E1
+WHERE
+        D1.Id = E1.DepartmentId
+    And
+        # make sure the salary is top one
+        (SELECT 
+            COUNT(DISTINCT E2.salary)
+         FROM 
+            Employee as E2
+         WHERE
+             E1.DepartmentId = E2.DepartmentId
+            AND
+             E2.Salary > E1.Salary) < 1
